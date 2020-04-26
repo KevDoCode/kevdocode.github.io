@@ -49,6 +49,7 @@
 								<li><a href="#home">Home</a></li>
 
 								<li><a href="#service">Apa yang dipelajari</a></li>
+								<li><a href="#video">Video Terbaru</a></li>
 
 							   <!-- Dropdown -->
 
@@ -97,6 +98,7 @@
 								</div>
 							</div>
 						</div>	
+						
 					</div>	
 				</section>
 				<!-- End service Area -->
@@ -123,6 +125,55 @@
 									</p>
 								</div>
 							</div>
+							
+							<div class="title text-center col-lg-12 mt-20">
+								<h1 class="mb-10 mt-10">Video - video terbaru KevDoCode!!</h1>
+					
+							</div>
+
+							<div class="col-lg-12 pl-8 pr-8 mr-8 ml-12 mt-3" id="video">
+								<div id="carouselExampleControls" class="carousel slide " data-ride="carousel">
+									<div class="carousel-inner">
+									  <div class="carousel-item active">
+										
+										<div class="embed-responsive embed-responsive-16by9" alt="First slide">
+											<iframe id="youtube_video" class="embed-responsive-item" allowfullscreen></iframe>
+										  </div>
+									  </div>
+									  <div class="carousel-item">
+										
+										<div class="embed-responsive embed-responsive-16by9" alt="Second slide">
+											<iframe id="youtube_video1" class="embed-responsive-item" allowfullscreen></iframe>
+										  </div>
+									  </div>
+									  <div class="carousel-item">
+										
+										<div class="embed-responsive embed-responsive-16by9" alt="Third slide">
+											<iframe id="youtube_video2" class="embed-responsive-item" allowfullscreen></iframe>
+										  </div>
+									  </div>
+									</div>
+									<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+									  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+									  <span class="sr-only">Previous</span>
+									</a>
+									<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+									  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+									  <span class="sr-only">Next</span>
+									</a>
+								  </div>
+							</div>
+							
+
+							
+
+							<!-- <div class="col-lg-6">
+								<div class="single-service">
+									<div class="embed-responsive embed-responsive-16by9">
+										<iframe id="youtube_video" class="embed-responsive-item" allowfullscreen></iframe>
+									  </div>
+								</div>
+							</div> -->
 
 						</div>
 					</div>	
@@ -184,6 +235,24 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<script src="js/mail-script.js"></script>
 			<script src="js/isotope.pkgd.min.js"></script>	
 			<script src="js/main.js"></script>	
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+			<script>
+				var channelID = "UCakN25IQCp45TlSssQ-rmiw";
+var reqURL = "https://www.youtube.com/feeds/videos.xml?channel_id=";
+$.getJSON("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(reqURL)+channelID, function(data) {
+   var link = data.items[0].link;
+   var id = link.substr(link.indexOf("=")+1);
+$("#youtube_video").attr("src","https://youtube.com/embed/"+id + "?controls=0&showinfo=0&rel=0");
+
+var link1 = data.items[1].link;
+   var id1 = link1.substr(link1.indexOf("=")+1);
+$("#youtube_video1").attr("src","https://youtube.com/embed/"+id1 + "?controls=0&showinfo=0&rel=0");
+
+var link2 = data.items[2].link;
+   var id2 = link2.substr(link2.indexOf("=")+1);
+$("#youtube_video2").attr("src","https://youtube.com/embed/"+id2 + "?controls=0&showinfo=0&rel=0");
+});
+			</script>
 		</body>
 	</html>
 
